@@ -1,0 +1,10 @@
+:root {
+  --font-1: "Bellefair", "Barlow Condensed", "Barlow", serif;
+  --font-2: "Barlow Condensed", "Barlow", sans-serif;
+  --font-3: 'Barlow', sans-serif;
+
+  --bg-color:#979797;
+  --dark-color:#0B0D17;
+  --text-color-1:#FFFFFF;
+  --text-color-2:#D0D6F9;
+}
