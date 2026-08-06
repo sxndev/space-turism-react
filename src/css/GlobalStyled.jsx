@@ -10,8 +10,10 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   html {
-    max-width:100vw;
     overflow-x:hidden;
+    width:100vw;
+    max-width:100vw;
+    min-height:100vh;
   }
 
   body {
