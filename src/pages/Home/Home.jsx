@@ -12,7 +12,7 @@ const StyledSection = styled.section`
   height: 100vh;
   background: url(${backgroundDesktop}) center center;
   background-repeat: no-repeat;
-
+  background-size:cover;
   @media (max-width: 768px) {
     background: url(${backgroundTablet}) center center;
   }
