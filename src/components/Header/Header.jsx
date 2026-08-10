@@ -1,55 +1,82 @@
+import { useState } from "react";
 import styled from "styled-components";
 import icon from "../../assets/shared/logo.svg";
+
+import { MenuButton } from "../MenuButton/MenuButton";
 
 const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height:140px;
   width: 100vw;
-  height: 14vh;
   position: absolute;
-  padding: 70px 0px 0px 20px; 
-  background-color: transparent;
+  top:0;
+  left:0;
+  padding: 20px;
   z-index: 1000;
 `;
+
 const StyledLogo = styled.img`
-  max-width: 100px;
-  width:100%;
+  max-width: 70px;
+  width: 100%;
   object-fit: contain;
-  z-index:100; 
-  padding:20px;
+  z-index: 100;
+  padding: 10px;
 `;
 
-const StyledNav = styled.nav`
+ const StyledNav = styled.nav`
   display: flex;
+  align-items: center;
   height: 100px;
   width: 60%;
   position: relative;
-  right:0;
+  right: 0;
+  top:0;
+  background: rgba(151, 151, 151, 0.05);
+  backdrop-filter: blur(40px);
+
   &:before {
     content: "";
     height: 1px;
     background-color: var(--bg-color);
-    width:50%; 
+    width: 50%;
     transform: translateX(-95%);
     z-index: 10;
     bottom: 50%;
     position: absolute;
   }
-`;
+
+  @media (max-width: 768px) {
+    align-items: start;
+    padding-top: 25vh;
+    top: 0;
+    right: ${({ $isOpen }) => ($isOpen ? "0" : "-100%")};
+    position: absolute;
+    height: 100vh;
+    transition: 0.5s ease right;
+
+    &:before {
+      display: none;
+    }
+  }
+`; 
 
 const StyledUl = styled.ul`
   display: flex;
-  justify-content:space-around;
+  justify-content: space-around;
   align-items: center;
-  padding-left:30px;   
-  gap: 10px;  
+  padding: 0 30px;
+  gap: 10px;
   height: 100%;
   width: 100%;
-  background-color: transparent;
-  background: rgba(151, 151, 151, 0.05);
-  backdrop-filter: blur(40px);
   color: white;
+
+  @media (max-width: 768px) {
+    height: fit-content;
+    align-items: start;
+    flex-direction: column;
+  }
 `;
 
 const StyledLi = styled.li`
@@ -59,7 +86,7 @@ const StyledLi = styled.li`
     gap:10px;
     height:100%;
     font-family:var(--font-2);
-    font-size:clamp(16px, 2vw, 20px);   
+    font-size:clamp(20px, 2vw, 40px);   
     letter-spacing:2px
     color:var(--text-color-1);
     position:relative;
@@ -80,16 +107,42 @@ const StyledLi = styled.li`
       left:0;
       transition: 0.7s width ease;
     }
-    &:hover:before {
+
+    &:hover:before { 
       width:110%;
+    }
+
+    @media (max-width: 768px){
+      justify-content:start;
+      width:100%;
+
+      &:before {
+        left:80%;
+        top:0;
+        max-width:5px;
+        height:0%;
+        transition: 0.7s height ease-out;
+      }
+
+      &:hover:before { 
+        height:100%;
+
+      }
     }
 `;
 
 export const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  function toggleMenu() {
+    setIsOpen((prev) => !prev);
+  }
+
   return (
     <StyledHeader>
       <StyledLogo src={icon} alt="Logo do aplicativo" />
-      <StyledNav>
+      <MenuButton onClick={toggleMenu} isOpen={isOpen} />
+      <StyledNav $isOpen={isOpen}>
         <StyledUl>
           <StyledLi>
             <p>00</p>

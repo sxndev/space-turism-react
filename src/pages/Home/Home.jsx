@@ -6,20 +6,24 @@ import backgroundMobile from "../../assets/home/background-home-mobile.jpg";
 
 const StyledSection = styled.section`
   display: flex;
-  align-items: end;
+  align-items: center;
   color: white;
-  height: 100%;
   height: 100vh;
-  background: url(${backgroundDesktop}) center center;
+  background: url(${ backgroundDesktop }) center center;
   background-repeat: no-repeat;
   background-size:cover;
+
+  overflow-y:hidden;
+
   @media (max-width: 768px) {
-    background: url(${backgroundTablet}) center center;
+    background: url(${ backgroundTablet }) center center;
   }
 
   @media (max-width: 650px) {
     background: url(${backgroundMobile}) center center;
+
   }
+
 `;
 
 const StyledContainer = styled.div`
@@ -29,13 +33,16 @@ const StyledContainer = styled.div`
   padding-top:30vh; 
   gap:50px;
   width: 100%;
-  height:100%;
+  max-height:100vh;
+  box-sizing:border-box;
 
   @media (max-width: 768px) {
     display:flex;
     flex-direction:column;
     justify-content:end;
     align-items:center;
+    gap:50px;
+    // padding-top:20vh;
   }
 `;
 
@@ -44,7 +51,7 @@ const StyledTextsContainer = styled.div`
   flex-direction: column;
   align-items: start;
   width: 100%;
-  height: 100%;
+  max-height: 100%;
 
   h1 {
     font-size: clamp(40px, 15vw, 200px);
@@ -75,8 +82,7 @@ const StyledTextsContainer = styled.div`
     gap: 10px;
 
     h1 {
-      font-size:clamp(100px, 20vw, 200px);
-      font-size: 120px;
+      font-size:clamp(20px, 20vw, 200px);
     }
 
     h3 {
@@ -91,7 +97,7 @@ const StyledCircleContainer = styled.div`
   align-items: center;
   justify-content: end;
   width: 100%;
-  height: 100%;
+  max-height: 100%;
 
   @media (max-width: 768px) {
     justify-content: center;
@@ -117,7 +123,10 @@ const StyledCircle = styled.div`
     height: 120px;
     width: 120px;
   }
-`;
+;`
+
+
+
 export const Home = () => {
   return (
     <>
