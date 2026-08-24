@@ -88,7 +88,7 @@ const StyledLi = styled.li`
     height:100%;
     font-family:var(--font-2);
     font-size:clamp(20px, 2vw, 40px);   
-    letter-spacing:2px
+    letter-spacing:2px;
     color:var(--text-color-1);
     position:relative;
     cursor:pointer;
@@ -129,8 +129,8 @@ const StyledLi = styled.li`
 
       &:hover:before { 
         height:100%;
-
       }
+        
     }
 `;
 
