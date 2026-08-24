@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import icon from "../../assets/shared/logo.svg";
 
@@ -8,13 +9,13 @@ const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height:140px;
+  height: 140px;
   width: 100vw;
   position: absolute;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
   padding: 20px;
-  z-index: 1000;
+  z-index: 10000;
 `;
 
 const StyledLogo = styled.img`
@@ -25,14 +26,14 @@ const StyledLogo = styled.img`
   padding: 10px;
 `;
 
- const StyledNav = styled.nav`
+const StyledNav = styled.nav`
   display: flex;
   align-items: center;
   height: 100px;
   width: 60%;
   position: relative;
   right: 0;
-  top:0;
+  top: 0;
   background: rgba(151, 151, 151, 0.05);
   backdrop-filter: blur(40px);
 
@@ -47,7 +48,7 @@ const StyledLogo = styled.img`
     position: absolute;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 800px) {
     align-items: start;
     padding-top: 25vh;
     top: 0;
@@ -60,7 +61,7 @@ const StyledLogo = styled.img`
       display: none;
     }
   }
-`; 
+`;
 
 const StyledUl = styled.ul`
   display: flex;
@@ -94,8 +95,10 @@ const StyledLi = styled.li`
 
     p{
         font-size:clamp(10px, 3vw, 25px);  
-        font-weight:bold;
+        font-weight:bold; 
+        display:inline;
     }
+
 
     &:before {
       content:"";
@@ -112,7 +115,7 @@ const StyledLi = styled.li`
       width:110%;
     }
 
-    @media (max-width: 768px){
+    @media (max-width: 800px){
       justify-content:start;
       width:100%;
 
@@ -145,11 +148,14 @@ export const Header = () => {
       <StyledNav $isOpen={isOpen}>
         <StyledUl>
           <StyledLi>
-            <p>00</p>
-            HOME
+            <Link to={"/"}>
+              <p>00</p> HOME
+            </Link>
           </StyledLi>
           <StyledLi>
-            <p>01</p> DESTINATION
+            <Link to={"/destination"}>
+              <p>01</p> DESTINATION
+            </Link>
           </StyledLi>
           <StyledLi>
             <p>02</p> CREW
