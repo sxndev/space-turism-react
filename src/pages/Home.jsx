@@ -1,4 +1,4 @@
-import { Header } from "../../components/Header/Header";
+import { Header } from "../components/Header/Header";
 import styled from "styled-components";
 import backgroundDesktop from "../../assets/home/background-home-desktop.jpg";
 import backgroundTablet from "../../assets/home/background-home-tablet.jpg";
