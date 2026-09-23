@@ -1,12 +1,12 @@
 import { Header } from "../components/Header/Header";
 import styled from "styled-components";
-import backgroundDesktop from "../../assets/home/background-home-desktop.jpg";
-import backgroundTablet from "../../assets/home/background-home-tablet.jpg";
-import backgroundMobile from "../../assets/home/background-home-mobile.jpg";
+import backgroundDesktop from "../assets/home/background-home-desktop.jpg";
+import backgroundTablet from "../assets/home/background-home-tablet.jpg";
+import backgroundMobile from "../assets/home/background-home-mobile.jpg";
 
 const StyledSection = styled.section`
   display: flex;
-  align-items: center;
+  align-items: center; 
   color: white;
   height: 100vh;
   background: url(${ backgroundDesktop }) center center;
