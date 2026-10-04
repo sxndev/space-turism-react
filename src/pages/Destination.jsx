@@ -20,15 +20,15 @@ const StyledSection = styled.section`
   transform: ${({ activePlanet }) => `translateX(${activePlanet * -100}vw)`};
   transition: transform 1s ease-in-out;
 `;
-const Button = styled.button`
-  position: absolute;
-  left: 10%;
-  top: 90%;
-  transform: translate(-50%, -50%);
-  background-color: pink;
-  padding: 20px;
-  z-index: 9999;
-`;
+// const Button = styled.button`
+//   position: absolute;
+//   left: 10%;
+//   top: 90%;
+//   transform: translate(-50%, -50%);
+//   background-color: pink;
+//   padding: 20px;
+//   z-index: 9999;
+// `;
 
 const StyledCarousel = styled.div`
   display: flex;
@@ -70,20 +70,6 @@ export const Destination = () => {
   return (
     <>
       <Header />
-
-      <Button
-        onClick={() => {
-          setActivePlanet((prev) => {
-            if (prev === data.length - 1) {
-              return 0;
-            }
-
-            return prev + 1;
-          });
-        }}
-      >
-        Próximo
-      </Button>
       <StyledSection>
         <StyledText>
           <p>01</p>
@@ -92,13 +78,14 @@ export const Destination = () => {
         <StyledCarousel activePlanet={activePlanet}>
           {data?.map((d, index) => (
             <AboutPlanet
-              description={d?.description}
-              distance={d?.distance}
-              travel={d?.travel}
-              key={d?.name}
-              name={d?.name}
-              image={d?.images.webp}
-              active={index === activePlanet}
+            description={d?.description}
+            distance={d?.distance}
+            travel={d?.travel}
+            key={d?.name}
+            name={d?.name}
+            image={d?.images.webp}
+            active={index === activePlanet}
+            onPlanetClick={setActivePlanet}
             />
           ))}
         </StyledCarousel>

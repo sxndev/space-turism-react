@@ -15,6 +15,7 @@ const StyledListItem = styled.li`
   position: relative;
   font-size: clamp(15px, 1.5vw, 30px);
   letter-spacing: 3px;
+  color:white;
 
   &:before {
     content: "";
@@ -32,13 +33,19 @@ const StyledListItem = styled.li`
   }
 `;
 
-export const PlanetsMenu = () => {
+export const PlanetsMenu = ({ onPlanetClick }) => {
+
+  const ul = ['MOON', 'MARS', 'EUROPA', 'TITAN']
+
   return (
     <StyledPLanetsMenu>
-      <StyledListItem> MOON </StyledListItem>
-      <StyledListItem> MARS </StyledListItem>
-      <StyledListItem> EUROPA </StyledListItem>
-      <StyledListItem> TITAN </StyledListItem>
+      {ul.map((planetName, index) => (
+        <StyledListItem key={planetName} 
+          onClick={() => onPlanetClick(index)}
+        >
+          {planetName}
+        </StyledListItem>
+      ))}
     </StyledPLanetsMenu>
   );
 };

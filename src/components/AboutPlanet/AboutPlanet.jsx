@@ -72,7 +72,16 @@ const AboutTravel = styled.div`
   }
 `;
 
-export const AboutPlanet = ({ description, distance, image, name, travel }) => {
+export const AboutPlanet = (
+  { 
+    description, 
+    distance, 
+    image, 
+    name, 
+    travel, 
+    onPlanetClick 
+
+  }) => {
   return (
     <AboutPlanetContainer>
       <StyledPlanetContainer>
@@ -81,11 +90,13 @@ export const AboutPlanet = ({ description, distance, image, name, travel }) => {
         </StyledImgContainer>
 
         <StyledInfoPlanet>
-          <PlanetsMenu />
+
+          <PlanetsMenu onPlanetClick={onPlanetClick}/>
+          
           <h2>{name}</h2>
           <p>{description}</p>
 
-          <hr />
+          <hr/>
 
           <AboutTravel>
             <div>
