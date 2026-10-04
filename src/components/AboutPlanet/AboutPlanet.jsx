@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { PlanetsMenu } from "../PlanetsMenu/PlanetsMenu";
 const AboutPlanetContainer = styled.section`
   display: flex;
   align-items: center;
@@ -34,13 +34,12 @@ const StyledImg = styled.img`
 
 const StyledInfoPlanet = styled.div`
   display: flex;
+  justify-content: center;
   flex-direction: column;
   gap: 20px;
-  // max-width: 50%;
   width: 100%;
   color: var(--text-color-1);
   padding: 30px;
-
   h2 {
     font-family: var(--font-1);
     text-transform: uppercase;
@@ -82,6 +81,7 @@ export const AboutPlanet = ({ description, distance, image, name, travel }) => {
         </StyledImgContainer>
 
         <StyledInfoPlanet>
+          <PlanetsMenu />
           <h2>{name}</h2>
           <p>{description}</p>
 
