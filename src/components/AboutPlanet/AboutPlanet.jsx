@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { PlanetsMenu } from "../PlanetsMenu/PlanetsMenu";
+
 const AboutPlanetContainer = styled.section`
   display: flex;
   align-items: center;
@@ -37,7 +38,7 @@ const StyledInfoPlanet = styled.div`
   justify-content: center;
   flex-direction: column;
   gap: 20px;
-  width: 100%;
+  width: 100%; 
   color: var(--text-color-1);
   padding: 30px;
   h2 {

@@ -20,15 +20,6 @@ const StyledSection = styled.section`
   transform: ${({ activePlanet }) => `translateX(${activePlanet * -100}vw)`};
   transition: transform 1s ease-in-out;
 `;
-// const Button = styled.button`
-//   position: absolute;
-//   left: 10%;
-//   top: 90%;
-//   transform: translate(-50%, -50%);
-//   background-color: pink;
-//   padding: 20px;
-//   z-index: 9999;
-// `;
 
 const StyledCarousel = styled.div`
   display: flex;
