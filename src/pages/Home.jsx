@@ -1,5 +1,6 @@
 import { Header } from "../components/Header/Header";
 import styled from "styled-components";
+
 import backgroundDesktop from "../assets/home/background-home-desktop.jpg";
 import backgroundTablet from "../assets/home/background-home-tablet.jpg";
 import backgroundMobile from "../assets/home/background-home-mobile.jpg";
@@ -21,7 +22,6 @@ const StyledSection = styled.section`
 
   @media (max-width: 650px) {
     background: url(${backgroundMobile}) center center;
-
   }
 
 `;
@@ -42,7 +42,6 @@ const StyledContainer = styled.div`
     justify-content:end;
     align-items:center;
     gap:50px;
-    // padding-top:20vh;
   }
 `;
 

@@ -3,7 +3,10 @@ import { useState, useEffect } from "react";
 import { getData } from "../scripts/script.js";
 import { Header } from "../components/Header/Header.jsx";
 import { AboutPlanet } from "../components/AboutPlanet/AboutPlanet.jsx";
+
 import backgroundDesktop from "../assets/destination/background-destination-desktop.jpg";
+import backgroundTablet from "../assets/destination/background-destination-tablet.jpg";
+import backgroundMobile from "../assets/destination/background-destination-mobile.jpg";
 
 const StyledSection = styled.section`
   display: flex;
@@ -19,6 +22,17 @@ const StyledSection = styled.section`
   overflow-x: hidden;
   transform: ${({ activePlanet }) => `translateX(${activePlanet * -100}vw)`};
   transition: transform 1s ease-in-out;
+
+  @media (max-width: 768px) {
+    background: url(${backgroundTablet}) center center;
+    background-repeat: no-repeat;
+  }
+
+  @media (max-width: 650px) {
+    background: url(${backgroundMobile}) center center;
+    background-size:cover;
+    background-repeat: no-repeat;
+  }
 `;
 
 const StyledCarousel = styled.div`
@@ -69,14 +83,14 @@ export const Destination = () => {
         <StyledCarousel activePlanet={activePlanet}>
           {data?.map((d, index) => (
             <AboutPlanet
-            description={d?.description}
-            distance={d?.distance}
-            travel={d?.travel}
-            key={d?.name}
-            name={d?.name}
-            image={d?.images.webp}
-            active={index === activePlanet}
-            onPlanetClick={setActivePlanet}
+              description={d?.description}
+              distance={d?.distance}
+              travel={d?.travel}
+              key={d?.name}
+              name={d?.name}
+              image={d?.images.webp}
+              active={index === activePlanet}
+              onPlanetClick={setActivePlanet}
             />
           ))}
         </StyledCarousel>
