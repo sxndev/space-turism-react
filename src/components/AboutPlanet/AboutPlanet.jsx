@@ -15,6 +15,12 @@ const StyledPlanetContainer = styled.div`
   width: 100vw;
   width: 100%;
   max-height: 70vh;
+
+  @media (max-width: 768px) {
+  justify-content:center; 
+  align-items:center;
+    flex-wrap:wrap;
+  }
 `;
 
 const StyledImgContainer = styled.div`
@@ -38,7 +44,7 @@ const StyledInfoPlanet = styled.div`
   justify-content: center;
   flex-direction: column;
   gap: 20px;
-  width: 100%; 
+  width: 100%;
   color: var(--text-color-1);
   padding: 30px;
   h2 {
@@ -58,7 +64,6 @@ const AboutTravel = styled.div`
   display: flex;
   align-items: center;
   gap: 40px;
-
   p {
     color: var(--bg-color);
     font-family: var(--font-2);
@@ -73,33 +78,31 @@ const AboutTravel = styled.div`
   }
 `;
 
-export const AboutPlanet = (
-  { 
-    description, 
-    distance, 
-    image, 
-    name, 
-    travel, 
-    onPlanetClick 
-
-  }) => {
+export const AboutPlanet = ({
+  description,
+  distance,
+  image,
+  name,
+  travel,
+  onPlanetClick,
+  activePlanet,
+}) => {
   return (
     <AboutPlanetContainer>
       <StyledPlanetContainer>
-        <StyledImgContainer>
+        <StyledImgContainer activePlanet={activePlanet}>
           <StyledImg src={image} alt={`Imagem de ${name}`} />
         </StyledImgContainer>
 
-        <StyledInfoPlanet>
+        <StyledInfoPlanet activePlanet={activePlanet}>
+          <PlanetsMenu onPlanetClick={onPlanetClick} />
 
-          <PlanetsMenu onPlanetClick={onPlanetClick}/>
-          
           <h2>{name}</h2>
           <p>{description}</p>
 
-          <hr/>
+          <hr />
 
-          <AboutTravel>
+          <AboutTravel activePlanet={activePlanet}>
             <div>
               <p>AVG. DISTANCE</p>
               <h3>{distance}</h3>

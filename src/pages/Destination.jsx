@@ -20,7 +20,6 @@ const StyledSection = styled.section`
   padding: 20px;
   padding-top: 20vh;
   overflow-x: hidden;
-  transform: ${({ activePlanet }) => `translateX(${activePlanet * -100}vw)`};
   transition: transform 1s ease-in-out;
 
   @media (max-width: 768px) {
@@ -30,7 +29,7 @@ const StyledSection = styled.section`
 
   @media (max-width: 650px) {
     background: url(${backgroundMobile}) center center;
-    background-size:cover;
+    background-size: cover;
     background-repeat: no-repeat;
   }
 `;
@@ -91,6 +90,7 @@ export const Destination = () => {
               image={d?.images.webp}
               active={index === activePlanet}
               onPlanetClick={setActivePlanet}
+              activePlanet={activePlanet}
             />
           ))}
         </StyledCarousel>
